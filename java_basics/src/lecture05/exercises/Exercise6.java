@@ -16,7 +16,7 @@ public class Exercise6 {
                 if (rowIndex == columnIndex) {
                     sumDiagonal1 += matrix2d[rowIndex][columnIndex];
                 }
-                if (rowIndex + columnIndex == matrix2d.length) {
+                if (rowIndex + columnIndex == matrix2d.length - 1) {
                     sumDiagonal2 += matrix2d[rowIndex][columnIndex];
                 }
             }

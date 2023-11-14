@@ -6,7 +6,7 @@ public class Exercise1 {
         int[] arr = { 5, 1, 2, 5, 66, 200 };
         int sum = 0;
 
-        for (int i = arr.length - 1; i >= 0; i--) {
+        for (int i = 0; i <= arr.length - 1; i++) {
             sum += arr[i];
         }
         System.out.println("The sum of the array elements is " + sum);

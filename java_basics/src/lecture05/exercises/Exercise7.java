@@ -2,7 +2,7 @@ package lecture05.exercises;
 
 public class Exercise7 {
     // Write a program which validate whether given string is palindrome (A palindrome is a sequence of characters which reads
-    // the same backward as forward, such as madam or race car)
+    // the same backward as forward, such as madam or racecar)
     public static void main(String[] args) {
         String word = "harryyrrah";
         int wordLength = word.length();
