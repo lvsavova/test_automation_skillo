@@ -1,0 +1,8 @@
+<suite name="Web test suite" verbose="1" parallel="methods" thread-count="2">
+    <test name="Parallel Tests">
+        <classes>
+            <class name="lecture10.examples.parallelTests.ParallelTests"></class>
+            <class name="lecture10.examples.parallelTests.ParallelSecondTests"></class>
+        </classes>
+    </test>
+</suite>

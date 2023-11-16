@@ -1,0 +1,16 @@
+<!-- Lecture 10 example
+     a testng.xml file that executes specific groups from a class file
+-->
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="GroupTests Suite">
+    <test name="Smoke Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="lecture10.examples.GroupTests"/>
+        </classes>
+    </test>
+</suite>
