@@ -10,7 +10,7 @@ We'll also share the lecture homework assignments, because teamwork makes the dr
 
 # Structure
 
-This course is logically separated into two parts - Java Fundamentals and Automation.
+This course is logically separated into three parts - Java Fundamentals, REST API and Automation.
 That being said, as we progress, keep your eyes peeled for the evolution of our repository. You'll witness the creation of three main modules:
 
 -  `java_basics`: IntelliJ module: Will contain lecture subfolders with examples and exercises from the Java Fundamentals course part 
