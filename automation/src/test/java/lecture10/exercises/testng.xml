@@ -1,0 +1,7 @@
+<suite name="Math calculation" verbose="1" parallel="methods" thread-count="5">
+    <test name="Exercise">
+        <classes>
+            <class name="lecture10.exercises.Exercises"></class>
+        </classes>
+    </test>
+</suite>
