@@ -1,0 +1,7 @@
+<suite name="Api tests" verbose="1" parallel="methods" thread-count="3">
+    <test name="Exercise">
+        <classes>
+            <class name="APITests"></class>
+        </classes>
+    </test>
+</suite>
