@@ -132,14 +132,13 @@ public class APITests {
         ActionPOJO action = new ActionPOJO();
         action.setAction("likePost");
 
-        ValidatableResponse response =
                 given()
                         .spec(spec)
                         .body(action)
                         .pathParam("postId", postId)
-                        .when()
+                .when()
                         .patch("/posts/{postId}")
-                        .then()
+                .then()
                         .statusCode(200)
                         .body("post.likesCount", equalTo(1));
     }
