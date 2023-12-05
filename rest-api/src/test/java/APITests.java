@@ -1,11 +1,14 @@
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pojos.ActionPOJO;
 import pojos.CommentPOJO;
 import pojos.LoginPOJO;
 import pojos.PostPOJO;
@@ -14,6 +17,7 @@ import utils.ConfigurationLoader;
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class APITests {
@@ -121,5 +125,38 @@ public class APITests {
         .then()
                 .statusCode(201)
                 .body("content", equalTo(comment.getContent()));
+    }
+
+    @Test(dependsOnMethods = "createNewPost")
+    public void likePost() {
+        ActionPOJO action = new ActionPOJO();
+        action.setAction("likePost");
+
+        ValidatableResponse response =
+                given()
+                        .spec(spec)
+                        .body(action)
+                        .pathParam("postId", postId)
+                        .when()
+                        .patch("/posts/{postId}")
+                        .then()
+                        .statusCode(200)
+                        .body("post.likesCount", equalTo(1));
+    }
+
+    @AfterClass
+    public void deletePost() {
+        Response response =
+                given()
+                        .spec(spec)
+                        .pathParam("postId", postId)
+                        .when()
+                        .delete("/posts/{postId}");
+
+        response.then()
+                .statusCode(200)
+                .body("msg", equalTo("Post was deleted!"));
+
+        assertThat(response.getBody().jsonPath().getString("msg"), equalTo("Post was deleted!"));
     }
 }
