@@ -1,4 +1,4 @@
-package lecture12.examples;
+package lecture15.examples;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;

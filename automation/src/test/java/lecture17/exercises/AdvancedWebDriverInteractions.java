@@ -1,4 +1,4 @@
-package lecture14.exercises;
+package lecture17.exercises;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;

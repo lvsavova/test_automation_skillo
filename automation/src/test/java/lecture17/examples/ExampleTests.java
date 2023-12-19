@@ -1,4 +1,4 @@
-package lecture14.examples;
+package lecture17.examples;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
