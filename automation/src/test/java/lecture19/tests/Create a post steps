@@ -1,0 +1,45 @@
+Test steps:
+
+1. Open homepage
+2. Login with existing user
+3. Go to profile page and get current posts count
+4. Go to new post
+5. Upload a new picture
+6. Verify that the image is visible
+7. Verify the image name is correct
+8. Populate the post caption
+9. Click create post
+10. Verify the post number has increased
+11. Open the latest post
+12. Verify the post details
+
+// Page objects design
+
+* HeaderContainer
+  - homeLink
+  - loginLink
+  - profileLink
+  - newPostLink
+  + goToHome()
+  + goToLogin()
+  + ...
+* HomePage
+  + goTo()
+* LoginPage
+
+* ProfilePage
+  - postsCount
+  - postsList
+  + getPostsCount()
+  + openPostByIndex()
+  + openLatestPost()
+* NewPostPage
+  - ?
+  + populateCaption()
+  + uploadFile()
+  + clickSubmit()
+
+* PostModalPage
+  - usernameTitle
+  + getUsernameTitle()
+
