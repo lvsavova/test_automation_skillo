@@ -10,10 +10,12 @@ import java.time.Duration;
 public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
+    WebDriverWait smallWait;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        smallWait = new WebDriverWait(driver, Duration.ofSeconds(1));
     }
 
     public void clickElement(WebElement element) {

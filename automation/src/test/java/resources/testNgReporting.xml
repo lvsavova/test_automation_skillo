@@ -1,0 +1,10 @@
+<suite name="Smoke" verbose = "1">
+    <listeners>
+        <listener class-name="lecture19.CustomListener"/>
+    </listeners>
+    <test name="New Post Test">
+        <classes>
+            <class name="lecture19.tests.CreateNewPostTest"></class>
+        </classes>
+    </test>
+</suite>

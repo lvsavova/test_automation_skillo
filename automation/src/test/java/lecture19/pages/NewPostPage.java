@@ -18,6 +18,11 @@ public class NewPostPage extends BasePage {
 
     @FindBy(id = "create-post")
     WebElement createPostBtn;
+    @FindBy(className = "image-preview")
+    WebElement imagePreview;
+
+    @FindBy(css = ".form-control.input-lg")
+    WebElement fileNameInput;
 
     public NewPostPage(WebDriver driver) {
         super(driver);
@@ -30,9 +35,19 @@ public class NewPostPage extends BasePage {
 
     public void clickSubmit() {
         clickElement(createPostBtn);
+        wait.until(ExpectedConditions.urlContains(ProfilePage.URL));
     }
 
     public void uploadFile(String absFilePath) {
         fileInput.sendKeys(absFilePath);
+    }
+
+    public void checkImagePreview() {
+        smallWait.until(ExpectedConditions.visibilityOf(imagePreview));
+    }
+
+    public String getFileName() {
+        smallWait.until(ExpectedConditions.visibilityOf(fileNameInput));
+        return fileNameInput.getAttribute("placeholder");
     }
 }

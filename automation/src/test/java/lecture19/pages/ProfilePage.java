@@ -34,4 +34,8 @@ public class ProfilePage extends BasePage {
         }
         clickElement(publicPosts.get(index));
     }
+
+    public void openLastPost() throws Exception {
+        openPostByIndex(publicPosts.size() - 1);
+    }
 }

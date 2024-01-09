@@ -1,24 +1,11 @@
 package lecture19.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import lecture19.pages.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-public class CreateNewPostTest {
+public class CreateNewPostTest extends BaseTest {
 
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
     @Test
     public void createNewPost() throws Exception {
         System.out.println("1. Open homepage");
@@ -35,7 +22,6 @@ public class CreateNewPostTest {
         headerContainer.goToProfile();
         ProfilePage profilePage = new ProfilePage(driver);
         int initialPostsCount = profilePage.getPostsCount();
-        System.out.println(initialPostsCount);
 
         System.out.println("4. Go to new post");
         headerContainer.goToNewPost();
@@ -45,8 +31,10 @@ public class CreateNewPostTest {
         newPostPage.uploadFile(System.getProperty("user.dir") + "\\src\\test\\java\\resources\\upload\\pretty.png");
 
         System.out.println("6. Verify that the image is visible");
+        newPostPage.checkImagePreview();
 
         System.out.println("7. Verify the image name is correct");
+        Assert.assertEquals(newPostPage.getFileName(), "pretty.png");
 
         System.out.println("8. Populate the post caption");
         newPostPage.populateCaption("Image");
@@ -55,14 +43,18 @@ public class CreateNewPostTest {
         newPostPage.clickSubmit();
 
         System.out.println("10. Verify the post number has increased");
+        int countAfterPostCreation = profilePage.getPostsCount();
+        int expectedCount  = initialPostsCount + 1;
+        Assert.assertTrue(countAfterPostCreation == expectedCount,
+                "Incorrect post count! Expected count: " + expectedCount +
+                "\nActual Count: " + countAfterPostCreation);
 
         System.out.println("11. Open the latest post");
+        profilePage.openLastPost();
 
-        System.out.println("12. Verify that correct username is dislayed in post details");
-    }
-
-    @AfterMethod
-    public void cleanup() {
-        driver.close();
+        System.out.println("12. Verify that correct username is displayed in post details");
+        PostModal postModal = new PostModal(driver);
+        Assert.assertEquals(postModal.getPostUser(), "automation_user",
+                "Incorrect username!");
     }
 }
