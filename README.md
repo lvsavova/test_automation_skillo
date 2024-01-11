@@ -10,12 +10,13 @@ We'll also share the lecture homework assignments, because teamwork makes the dr
 
 # Structure
 
-This course is logically separated into three parts - Java Fundamentals, REST API and Automation.
-That being said, as we progress, keep your eyes peeled for the evolution of our repository. You'll witness the creation of three main modules:
+This course is logically separated into four parts - Java Fundamentals, REST API, Automation with Selenium and TestNG and Cucumber.
+That being said, as we progress, keep your eyes peeled for the evolution of our repository. You'll witness the creation of four main modules ( projects ):
 
--  `java_basics`: IntelliJ module: Will contain lecture subfolders with examples and exercises from the Java Fundamentals course part 
-- `automation`: Maven module: Will contain lecture subfolders with examples and exercises from the Automation course part
-- `rest_api`: Maven module: Will contain the code from the REST API lectures ( lectures 10-17)
+- `java_basics`: IntelliJ module: Will contain lecture subfolders with examples and exercises from the Java Fundamentals lectures
+- `automation`: Maven module: Will contain lecture subfolders with examples and exercises from the Automation with Selenium and TestNG lectures
+- `rest_api`: Maven module: Will contain the code from the REST API lectures
+- `cucumber`: Maven module: Will contain the code from the Cucumber lectures
 
 ## Okay, but how do I use it?
 
