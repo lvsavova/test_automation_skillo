@@ -1,4 +1,5 @@
 Feature: User registration
+
   As a potential user, I should be able to create an account so
   that I can access the system's features
 
